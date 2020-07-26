@@ -1,0 +1,54 @@
+{
+  "name": "web6/socketlabs-bulk-mailer",
+  "description": "Send templated emails via SocketLabs API",
+  "keywords": [
+    "socketlabs",
+    "mailer",
+    "emailint",
+    "newsletter"
+  ],
+  "homepage": "https://github.com/web6-fr/socketlabs-bulk-mailer",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "WEB6",
+      "email": "contact@web6.fr",
+      "homepage": "https://www.web6.fr/"
+    },
+    {
+      "name": "Pierre Aboucaya",
+      "email": "contact@pierre.aboucaya.name",
+      "homepage": "https://pierre.aboucaya.name/"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "ext-json": "*",
+    "monolog/monolog": "^2.0",
+    "php-di/php-di": "^6.1",
+    "slim/psr7": "^1.1",
+    "slim/slim": "^4.5",
+    "socketlabs/email-delivery": "^1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5"
+  },
+  "config": {
+    "process-timeout": 0,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "start": "php -S localhost:8080 -t public",
+    "test": "phpunit"
+  }
+}
