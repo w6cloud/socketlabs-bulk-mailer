@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
@@ -7,6 +8,7 @@ use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Slim\Views\Twig;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -24,5 +26,11 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $logger;
         },
+        'view' => function () {
+            $root = realpath(__DIR__ . '/../');
+            return Twig::create("$root/templates", [
+                //'cache' => "$root/var/cache"
+            ]);
+        }
     ]);
 };
